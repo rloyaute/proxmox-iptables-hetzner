@@ -113,8 +113,7 @@ iptables -t nat -A POSTROUTING -s $VmWanNET -o $PrxPubVBR -j MASQUERADE
 iptables -A OUTPUT -o $PrxVmWanVBR -s $ProxVmWanIP -p udp -j ACCEPT
 iptables -A OUTPUT -o $PrxVmWanVBR -s $ProxVmWanIP -p tcp -j ACCEPT
 
-# Authorize SMTP packets for email alerts
-iptables -t filter -A INPUT -p tcp --dport 25 -j ACCEPT
+# Authorize SMTP packets for email alerts from Proxmox
 iptables -t filter -A OUTPUT -p tcp --dport 25 -j ACCEPT
 
 ### Proxmox interface access
